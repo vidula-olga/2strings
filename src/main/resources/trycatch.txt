@@ -1,0 +1,29 @@
+
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(file);
+        } catch (IOException e) {
+            // ..
+        }
+        try {
+            if (inputStream != null) {
+                inputStream.read(bytes);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    //...
+                }
+            }
+        }
+
+       /* try (InputStream inputStream = new FileInputStream(file)) {
+            inputStream.read(bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
